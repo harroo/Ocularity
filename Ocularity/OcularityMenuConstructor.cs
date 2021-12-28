@@ -85,6 +85,7 @@ public class OcularityMenuConstructor : MonoBehaviour {
             behaviour.clickedImage = OcularityPrefix.instance._clickedImage;
             behaviour.clickedColor = OcularityPrefix.instance.clickedColor;
             behaviour.onAdjustMethod = oSlider.onAdjust;
+            behaviour.onEndAdjustMethod = oSlider.onEndAdjust;
             behaviour.minValue = oSlider.min;
             behaviour.maxValue = oSlider.max;
             if (oSlider.onLoad != null) oSlider.onLoad(behaviour);

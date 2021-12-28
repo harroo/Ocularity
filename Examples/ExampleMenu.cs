@@ -44,7 +44,11 @@ public class ExampleMenu : MonoBehaviour {
 
         sliders = {
 
-            new OcularSlider() { title = "Slider", }
+            new OcularSlider() { title = "Slider",
+            onEndAdjust = (float value) => {
+
+                Debug.Log(value);
+            } },
 
         },
     };

@@ -11,13 +11,13 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public Sprite backgroundImage, idleImage, highlightedImage, clickedImage;
     public Color backgroundColor, idleColor, highlightedColor, clickedColor;
 
-    public Action onAdjustMethod, onEndAdjustMethod;
+    public Action<float> onAdjustMethod, onEndAdjustMethod;
 
     public float minValue, maxValue;
     public float value;
 
     private Image sliderImage;
-    private bool highlighted;
+    private bool highlighted, sliding;
 
     private GameObject sliderNotch;
     private Image sliderNotchImage;
@@ -40,7 +40,17 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     private void Update () {
 
-        if (!highlighted) return;
+        if (!highlighted) {
+
+            if (sliding) {
+
+                if (onEndAdjustMethod != null) onEndAdjustMethod(value);
+
+                sliding = false;
+            }
+
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0)) {
 
@@ -48,6 +58,8 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
             sliderNotchImage.color = clickedColor;
 
             rectX = GetComponent<RectTransform>().rect.x * 1.8f;
+
+            sliding = true;
         }
 
         if (Input.GetMouseButton(0)) {
@@ -70,7 +82,7 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
             xposf -= 0.5f;
             sliderNotch.transform.position = new Vector3(transform.position.x + -xposf * rectX, transform.position.y, transform.position.z);
 
-            if (onEndAdjustMethod != null) onAdjustMethod();
+            if (onAdjustMethod != null) onAdjustMethod(value);
         }
 
         if (Input.GetMouseButtonUp(0)) {
@@ -86,7 +98,9 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 sliderNotchImage.color = idleColor;
             }
 
-            if (onEndAdjustMethod != null) onEndAdjustMethod();
+            if (onEndAdjustMethod != null) onEndAdjustMethod(value);
+
+            sliding = false;
         }
     }
 

@@ -39,5 +39,5 @@ public class OcularSlider {
     public float min = 0, max = 100;
 
     public Action<OcularitySlider> onLoad;
-    public Action onAdjust, onEndAdjust;
+    public Action<float> onAdjust, onEndAdjust;
 }
