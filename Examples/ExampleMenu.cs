@@ -41,6 +41,12 @@ public class ExampleMenu : MonoBehaviour {
                 Ocularity.ShowMenu(title);
             } }
         },
+
+        sliders = {
+
+            new OcularSlider() { title = "Slider", }
+
+        },
     };
 
     private void Start () {

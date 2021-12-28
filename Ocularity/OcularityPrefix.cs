@@ -7,8 +7,10 @@ public class OcularityPrefix : MonoBehaviour {
     public static OcularityPrefix instance;
     private void Awake () { instance = this; }
 
-    // The last two of these shall default to the Idle-Image if they're null.
-    // Wait never mind, no they don't.
+    public Sprite backgroundImage;
+    public Color backgroundColor = new Color(1, 1, 1, 1);
+
+    [Space()]
     public Sprite idleImage;
     public Color idleColor = new Color(1, 1, 1, 1);
 

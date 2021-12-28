@@ -44,7 +44,7 @@ public class OcularityButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
                 buttonImage.color = idleColor;
             }
 
-            onClickMethod();
+            if (onClickMethod != null) onClickMethod();
         }
     }
 
