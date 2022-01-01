@@ -22,7 +22,14 @@ public class OcularityPrefix : MonoBehaviour {
     public Sprite clickedImage;
     public Color clickedColor = new Color(1, 1, 1, 1);
 
-    [HideInInspector]
+    // Sounds will require Reverb.
+    // Here --> https://github.com/harroo/Reverb
+    // To use this, uncomment the Reverb Function-calls in
+    // "MenuComponents/OcularButton.cs"
+    [Space()]
+    public string highlightSound = "";
+    public string clickSound = "";
+
     public Sprite _idleImage => idleImage == null ? null : idleImage;
     public Sprite _highlightedImage => highlightedImage == null ? null : highlightedImage;
     public Sprite _clickedImage => clickedImage == null ? null : clickedImage;

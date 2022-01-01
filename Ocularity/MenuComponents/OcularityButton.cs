@@ -48,13 +48,22 @@ public class OcularityButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         }
     }
 
-    public void OnPointerClick (PointerEventData e) { }
+    public void OnPointerClick (PointerEventData e) {
+
+        // Uncomment these lines to enable sounds, Reverb is required.
+        // if (OcularityPrefix.instance.clickSound != "")
+        //     ReverbAudioManager.Play(OcularityPrefix.instance.clickSound);
+    }
 
     public void OnPointerEnter (PointerEventData e) {
 
         buttonImage.sprite = highlightedImage;
         buttonImage.color = highlightedColor;
         highlighted = true;
+
+        // Uncomment these lines to enable sounds, Reverb is required.
+        // if (OcularityPrefix.instance.highlightSound != "")
+        //     ReverbAudioManager.Play(OcularityPrefix.instance.highlightSound);
     }
 
     public void OnPointerExit (PointerEventData e) {
