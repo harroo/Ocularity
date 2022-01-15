@@ -101,6 +101,10 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
             if (onEndAdjustMethod != null) onEndAdjustMethod(value);
 
             sliding = false;
+
+            // Uncomment these lines to enable sounds, Reverb is required.
+            // if (OcularityPrefix.instance.clickSound != "")
+            //     ReverbAudioManager.Play(OcularityPrefix.instance.clickSound);
         }
     }
 
@@ -111,6 +115,10 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
         sliderNotchImage.sprite = highlightedImage;
         sliderNotchImage.color = highlightedColor;
         highlighted = true;
+
+        // Uncomment these lines to enable sounds, Reverb is required.
+        // if (OcularityPrefix.instance.highlightSound != "")
+        //     ReverbAudioManager.Play(OcularityPrefix.instance.highlightSound);
     }
 
     public void OnPointerExit (PointerEventData e) {
