@@ -9,13 +9,13 @@ public class ExampleMenu : MonoBehaviour {
 
         buttons = {
 
-            new OcularButton() { title = "Play",
+            new OcularButton() { title = "Play", order = 1,
             onClick = () => {
 
                 Debug.Log("Play!");
             } },
 
-            new OcularButton() { title = "Settings",
+            new OcularButton() { title = "Settings", order = 2,
             onClick = () => {
 
                 Ocularity.ShowMenu(settings);
@@ -29,13 +29,13 @@ public class ExampleMenu : MonoBehaviour {
 
         buttons = {
 
-            new OcularButton() { title = "Set",
+            new OcularButton() { title = "Set", order = 1,
             onClick = () => {
 
                 Debug.Log("Setted!");
             } },
 
-            new OcularButton() { title = "Back",
+            new OcularButton() { title = "Back", order = 4,
             onClick = () => {
 
                 Ocularity.ShowMenu(title);
@@ -44,7 +44,7 @@ public class ExampleMenu : MonoBehaviour {
 
         sliders = {
 
-            new OcularSlider() { title = "Slider",
+            new OcularSlider() { title = "Slider", order = 3,
             min = 0, max = 100,
             onLoad = (OcularitySlider slider) => {
 
@@ -63,7 +63,7 @@ public class ExampleMenu : MonoBehaviour {
 
         toggles = {
 
-            new OcularToggle() { title = "Toggle",
+            new OcularToggle() { title = "Toggle", order = 2,
             values = new string[] {
                 "1", "2", "3"
             },

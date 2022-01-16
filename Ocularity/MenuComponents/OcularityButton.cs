@@ -16,6 +16,8 @@ public class OcularityButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
     private Image buttonImage;
     private bool highlighted;
 
+    public string idname;
+
     private void Start () {
 
         buttonImage = GetComponent<Image>();

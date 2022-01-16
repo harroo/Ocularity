@@ -27,6 +27,7 @@ public class OcularButton {
 
     public string name = "oButton";
     public string title;
+    public int order;
 
     public Action onClick;
 }
@@ -36,6 +37,7 @@ public class OcularSlider {
 
     public string name = "oSldier";
     public string title;
+    public int order;
 
     public float min = 0, max = 100;
 
@@ -48,6 +50,7 @@ public class OcularToggle {
 
     public string name = "oToggle";
     public string title;
+    public int order;
 
     public string[] values;
 

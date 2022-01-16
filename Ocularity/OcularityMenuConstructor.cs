@@ -54,6 +54,8 @@ public class OcularityMenuConstructor : MonoBehaviour {
             behaviour.clickedImage = OcularityPrefix.instance._clickedImage;
             behaviour.clickedColor = OcularityPrefix.instance.clickedColor;
             behaviour.onClickMethod = oButton.onClick;
+
+            behaviour.idname = oMenu.title + "::" + oButton.title;
         });
 
         oMenu.sliders.ForEach(delegate(OcularSlider oSlider) {
@@ -90,6 +92,8 @@ public class OcularityMenuConstructor : MonoBehaviour {
             behaviour.maxValue = oSlider.max;
             if (oSlider.onLoad != null) oSlider.onLoad(behaviour);
             behaviour.Setup(new Vector2(oMenu.cellSize.x / 8.0f, oMenu.cellSize.y));
+
+            behaviour.idname = oMenu.title + "::" + oSlider.title;
         });
 
         oMenu.toggles.ForEach(delegate(OcularToggle oToggle) {
@@ -121,6 +125,44 @@ public class OcularityMenuConstructor : MonoBehaviour {
             behaviour.onToggleMethod = oToggle.onToggle;
             behaviour.Setup(oToggle.values, text, oToggle.title);
             if (oToggle.onLoad != null) oToggle.onLoad(behaviour);
+
+            behaviour.idname = oMenu.title + "::" + oToggle.title;
+        });
+
+        oMenu.buttons.ForEach(delegate(OcularButton oButton) {
+
+            foreach (var gameObject in cache) {
+
+                OcularityButton behaviour = gameObject.GetComponent<OcularityButton>();
+                if (behaviour == null) continue;
+
+                if (behaviour.idname == oMenu.title + "::" + oButton.title)
+                    gameObject.transform.SetSiblingIndex(oButton.order);
+            }
+        });
+
+        oMenu.sliders.ForEach(delegate(OcularSlider oSlider) {
+
+            foreach (var gameObject in cache) {
+
+                OcularitySlider behaviour = gameObject.GetComponent<OcularitySlider>();
+                if (behaviour == null) continue;
+
+                if (behaviour.idname == oMenu.title + "::" + oSlider.title)
+                    gameObject.transform.SetSiblingIndex(oSlider.order);
+            }
+        });
+
+        oMenu.toggles.ForEach(delegate(OcularToggle oToggle) {
+
+            foreach (var gameObject in cache) {
+
+                OcularityToggle behaviour = gameObject.GetComponent<OcularityToggle>();
+                if (behaviour == null) continue;
+
+                if (behaviour.idname == oMenu.title + "::" + oToggle.title)
+                    gameObject.transform.SetSiblingIndex(oToggle.order);
+            }
         });
     }
 

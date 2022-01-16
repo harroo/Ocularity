@@ -23,6 +23,8 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
     private Image sliderNotchImage;
     private float rectX;
 
+    public string idname;
+
     public void Setup (Vector2 notchScale) {
 
         sliderImage = GetComponent<Image>();

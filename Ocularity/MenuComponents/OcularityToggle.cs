@@ -24,6 +24,8 @@ public class OcularityToggle : MonoBehaviour, IPointerClickHandler, IPointerEnte
     private Image buttonImage;
     private bool highlighted;
 
+    public string idname;
+
     public void Setup (string[] sa, Text t, string s) {
 
         _values = sa;
