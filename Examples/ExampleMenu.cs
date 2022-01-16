@@ -45,7 +45,33 @@ public class ExampleMenu : MonoBehaviour {
         sliders = {
 
             new OcularSlider() { title = "Slider",
+            min = 0, max = 100,
+            onLoad = (OcularitySlider slider) => {
+
+                slider.value = 64;
+            },
+            onAdjust = (float value) => {
+
+                Debug.Log("Adjusted: " + value);
+            },
             onEndAdjust = (float value) => {
+
+                Debug.Log(value);
+            } },
+
+        },
+
+        toggles = {
+
+            new OcularToggle() { title = "Toggle",
+            values = new string[] {
+                "1", "2", "3"
+            },
+            onLoad = (OcularityToggle toggle) => {
+
+                toggle.value = toggle.values[2];
+            },
+            onToggle = (string value) => {
 
                 Debug.Log(value);
             } },

@@ -91,6 +91,37 @@ public class OcularityMenuConstructor : MonoBehaviour {
             if (oSlider.onLoad != null) oSlider.onLoad(behaviour);
             behaviour.Setup(new Vector2(oMenu.cellSize.x / 8.0f, oMenu.cellSize.y));
         });
+
+        oMenu.toggles.ForEach(delegate(OcularToggle oToggle) {
+
+            GameObject toggle = new GameObject(oToggle.name);
+            toggle.transform.SetParent(transform);
+            toggle.transform.localScale = new Vector3(1, 1, 1);
+            cache.Add(toggle);
+
+            GameObject textObject = new GameObject(oToggle.name + " Text");
+            textObject.transform.SetParent(toggle.transform);
+            textObject.transform.localScale = new Vector3(1, 1, 1);
+
+            Text text = textObject.AddComponent<Text>();
+            textObject.GetComponent<RectTransform>().sizeDelta = oMenu.cellSize;
+            text.font = OcularityPrefix.instance.font;
+            text.text = oToggle.title;
+            text.color = OcularityPrefix.instance.fontColor;
+            text.alignment = TextAnchor.MiddleCenter;
+            text.raycastTarget = false;
+
+            var behaviour = toggle.AddComponent<OcularityToggle>();
+            behaviour.idleImage = OcularityPrefix.instance._idleImage;
+            behaviour.idleColor = OcularityPrefix.instance.idleColor;
+            behaviour.highlightedImage = OcularityPrefix.instance._highlightedImage;
+            behaviour.highlightedColor = OcularityPrefix.instance.highlightedColor;
+            behaviour.clickedImage = OcularityPrefix.instance._clickedImage;
+            behaviour.clickedColor = OcularityPrefix.instance.clickedColor;
+            behaviour.onToggleMethod = oToggle.onToggle;
+            behaviour.Setup(oToggle.values, text, oToggle.title);
+            if (oToggle.onLoad != null) oToggle.onLoad(behaviour);
+        });
     }
 
     public void Clear () {

@@ -13,6 +13,7 @@ public class OcularMenu {
 
     public List<OcularButton> buttons = new List<OcularButton>();
     public List<OcularSlider> sliders = new List<OcularSlider>();
+    public List<OcularToggle> toggles = new List<OcularToggle>();
 
     public Vector2 gridSize = new Vector2(300, 300);
     public Vector2 cellSize = new Vector2(265, 64);
@@ -40,4 +41,16 @@ public class OcularSlider {
 
     public Action<OcularitySlider> onLoad;
     public Action<float> onAdjust, onEndAdjust;
+}
+
+[Serializable]
+public class OcularToggle {
+
+    public string name = "oToggle";
+    public string title;
+
+    public string[] values;
+
+    public Action<OcularityToggle> onLoad;
+    public Action<string> onToggle;
 }
