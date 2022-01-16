@@ -40,19 +40,25 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
         sliderNotch.transform.SetAsFirstSibling();
     }
 
-    private void Start () {
+    //          broken, needs to be fixed
 
-        Invoke("UpdateDisplay", 0.1f);
-    }
+        private void Start () {
 
-    private void UpdateDisplay () {
+            value = PlayerPrefs.GetFloat(idname, 0.0f);
 
-        RectTransform rectTransform = GetComponent<RectTransform>();
-        float xposf = (float)value / (rectTransform.rect.width - 1);
-        xposf -= 0.5f;
+            Invoke("UpdateDisplay", 0.1f);
+        }
 
-        sliderNotch.transform.position = new Vector3(transform.position.x + xposf * rectTransform.rect.x, transform.position.y, transform.position.z);
-    }
+        private void UpdateDisplay () {
+
+            RectTransform rectTransform = GetComponent<RectTransform>();
+            float xposf = (float)value / (rectTransform.rect.width - 1);
+            xposf -= 0.5f; float rX = rectTransform.rect.x * 1.8f;
+
+            sliderNotch.transform.position = new Vector3(transform.position.x + xposf * rX, transform.position.y, transform.position.z);
+        }
+
+    //
 
     private void Update () {
 
@@ -99,6 +105,7 @@ public class OcularitySlider : MonoBehaviour, IPointerClickHandler, IPointerEnte
             sliderNotch.transform.position = new Vector3(transform.position.x + -xposf * rectX, transform.position.y, transform.position.z);
 
             if (onAdjustMethod != null) onAdjustMethod(value);
+            PlayerPrefs.SetFloat(idname, value);
         }
 
         if (Input.GetMouseButtonUp(0)) {

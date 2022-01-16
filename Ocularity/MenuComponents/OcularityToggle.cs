@@ -37,6 +37,8 @@ public class OcularityToggle : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         buttonImage = GetComponent<Image>();
 
+        SetIndex(PlayerPrefs.GetInt(idname, 0));
+
         titleText.text = title + ": " + value;
     }
 
@@ -69,6 +71,7 @@ public class OcularityToggle : MonoBehaviour, IPointerClickHandler, IPointerEnte
             titleText.text = title + ": " + value;
 
             if (onToggleMethod != null) onToggleMethod(value);
+            PlayerPrefs.SetInt(idname, GetIndex());
         }
     }
 

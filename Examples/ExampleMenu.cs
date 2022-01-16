@@ -48,7 +48,7 @@ public class ExampleMenu : MonoBehaviour {
             min = 0, max = 100,
             onLoad = (OcularitySlider slider) => {
 
-                slider.value = 64;
+                //do something
             },
             onAdjust = (float value) => {
 
@@ -69,7 +69,7 @@ public class ExampleMenu : MonoBehaviour {
             },
             onLoad = (OcularityToggle toggle) => {
 
-                toggle.value = toggle.values[2];
+                //do something
             },
             onToggle = (string value) => {
 
