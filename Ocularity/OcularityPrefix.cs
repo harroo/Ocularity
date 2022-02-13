@@ -36,5 +36,5 @@ public class OcularityPrefix : MonoBehaviour {
 
     [Space()]
     public Font font;
-    public Color fontColor = new Color(1, 1, 1, 1);
+    public Color fontColor = new Color(0, 0, 0, 1);
 }
