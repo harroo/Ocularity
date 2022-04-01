@@ -42,6 +42,7 @@ public class OcularityMenuConstructor : MonoBehaviour {
             Text text = textObject.AddComponent<Text>();
             textObject.GetComponent<RectTransform>().sizeDelta = oMenu.cellSize;
             text.font = OcularityPrefix.instance.font;
+            text.fontSize = OcularityPrefix.instance.fontSize;
             text.text = oButton.title;
             text.color = OcularityPrefix.instance.fontColor;
             text.alignment = TextAnchor.MiddleCenter;
@@ -72,6 +73,7 @@ public class OcularityMenuConstructor : MonoBehaviour {
             Text text = textObject.AddComponent<Text>();
             textObject.GetComponent<RectTransform>().sizeDelta = oMenu.cellSize;
             text.font = OcularityPrefix.instance.font;
+            text.fontSize = OcularityPrefix.instance.fontSize;
             text.text = oSlider.title;
             text.color = OcularityPrefix.instance.fontColor;
             text.alignment = TextAnchor.MiddleCenter;
@@ -110,6 +112,7 @@ public class OcularityMenuConstructor : MonoBehaviour {
             Text text = textObject.AddComponent<Text>();
             textObject.GetComponent<RectTransform>().sizeDelta = oMenu.cellSize;
             text.font = OcularityPrefix.instance.font;
+            text.fontSize = OcularityPrefix.instance.fontSize;
             text.text = oToggle.title;
             text.color = OcularityPrefix.instance.fontColor;
             text.alignment = TextAnchor.MiddleCenter;
