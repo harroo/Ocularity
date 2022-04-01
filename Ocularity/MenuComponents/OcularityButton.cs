@@ -58,6 +58,9 @@ public class OcularityButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         // Uncomment these lines to enable sounds, Reverb is required.
         // if (OcularityPrefix.instance.clickSound != "")
         //     ReverbAudioManager.Play(OcularityPrefix.instance.clickSound);
+
+        if (Application.platform == RuntimePlatform.Android)
+            if (onClickMethod != null) onClickMethod();
     }
 
     public void OnPointerEnter (PointerEventData e) {

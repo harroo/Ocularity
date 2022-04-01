@@ -83,6 +83,17 @@ public class OcularityToggle : MonoBehaviour, IPointerClickHandler, IPointerEnte
         // Uncomment these lines to enable sounds, Reverb is required.
         // if (OcularityPrefix.instance.clickSound != "")
         //     ReverbAudioManager.Play(OcularityPrefix.instance.clickSound);
+
+        if (Application.platform == RuntimePlatform.Android) {
+
+            index++; if (index >= _values.Length) index = 0;
+            value = values[index];
+
+            titleText.text = title + ": " + value;
+
+            if (onToggleMethod != null) onToggleMethod(value);
+            PlayerPrefs.SetInt(idname, GetIndex());
+        }
     }
 
     public void OnPointerEnter (PointerEventData e) {
