@@ -2,14 +2,16 @@
 // Apply this to the usual sort of UnityEngine.Button and it shall become
 // Like all others in your Ocularity Prefix.
 
+// Simply apply it to a button and change it's transition-mode to "None".
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class OcularityButtonMimic : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
 
-    public Sprite idleImage, highlightedImage, clickedImage;
-    public Color idleColor, highlightedColor, clickedColor;
+    private Sprite idleImage, highlightedImage, clickedImage;
+    private Color idleColor, highlightedColor, clickedColor;
 
     private Image buttonImage;
     private bool highlighted;
